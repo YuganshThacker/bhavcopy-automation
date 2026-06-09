@@ -1,0 +1,21 @@
+# Secrets — never commit real credentials
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Downloaded bhavcopy data (re-downloaded each run; DB is source of truth)
+/tmp/bhavcopy/
+*.csv
+*.zip
+
+# Keep the reference sample CSVs out of git too (large)
+nse_1month.csv
+bse_1month.csv
+
+# OS
+.DS_Store

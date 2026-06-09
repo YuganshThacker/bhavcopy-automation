@@ -1,0 +1,28 @@
+# Render Blueprint — a scheduled Cron Job that runs the daily bhavcopy pipeline.
+# Docs: https://render.com/docs/cronjobs   https://render.com/docs/blueprint-spec
+#
+# Schedule is in UTC. 14:45 UTC = 20:15 IST, Monday–Friday.
+# After connecting this repo as a Blueprint, set DB_PASSWORD in the dashboard
+# (it is marked sync:false so it is NOT stored in git).
+
+services:
+  - type: cron
+    name: bhavcopy-daily
+    runtime: python
+    schedule: "45 14 * * 1-5"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run_daily.py
+    region: singapore        # closest Render region to ap-south-1 Supabase
+    envVars:
+      - key: DB_HOST
+        value: aws-1-ap-south-1.pooler.supabase.com
+      - key: DB_PORT
+        value: "6543"
+      - key: DB_NAME
+        value: postgres
+      - key: DB_USER
+        value: postgres.myuvzzktuzsqaujyhxld
+      - key: DB_PASSWORD
+        sync: false          # set this secret in the Render dashboard
+      - key: BHAVCOPY_DATA_DIR
+        value: /tmp/bhavcopy
