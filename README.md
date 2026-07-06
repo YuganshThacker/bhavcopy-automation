@@ -76,7 +76,7 @@ To change the time, edit `schedule` in `render.yaml` (UTC) and redeploy.
 
 ## Database
 
-Target tables (Supabase project `myuvzzktuzsqaujyhxld`):
+Target tables (Supabase project `xqutgxdwmsvabwaioszq`, "KuberAI - UAT"):
 
 - `price_history` — PK `(symbol, as_of_date, series)`
 - `technical_indicators` — PK `(symbol, as_of_date, series)`

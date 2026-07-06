@@ -21,7 +21,7 @@ services:
       - key: DB_NAME
         value: postgres
       - key: DB_USER
-        value: postgres.myuvzzktuzsqaujyhxld
+        value: postgres.xqutgxdwmsvabwaioszq
       - key: DB_PASSWORD
         sync: false          # set this secret in the Render dashboard
       - key: BHAVCOPY_DATA_DIR
