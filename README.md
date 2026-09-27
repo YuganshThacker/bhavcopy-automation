@@ -102,6 +102,18 @@ Historical backfill:
 python backfill.py --start 2026-05-01 --end 2026-06-05
 ```
 
+## Tests
+
+The indicator math is pure numpy/pandas, so it is tested without a database.
+Reference values are computed independently inside each test (SMA-seeded EMA,
+gap-aware True Range, volume-weighted typical price, RSI bounds), and CI runs
+them on every push.
+
+```bash
+pip install pytest
+python -m pytest -q tests
+```
+
 ## Deployment
 
 The repository includes a container definition and a scheduled-job configuration for running the pipeline on a recurring basis.

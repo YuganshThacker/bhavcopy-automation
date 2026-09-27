@@ -18,10 +18,13 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt pytest
 
       - name: Compile Python sources
         run: python -m compileall -q .
 
       - name: Import pipeline modules
         run: python -c "import bhavcopy_pipeline.download, bhavcopy_pipeline.ingest, bhavcopy_pipeline.indicators, bhavcopy_pipeline.pipeline"
+
+      - name: Test indicator math and trading calendar
+        run: python -m pytest -q tests
